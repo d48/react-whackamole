@@ -1,4 +1,26 @@
 .App {
   font-family: sans-serif;
   text-align: center;
+  box-sizing: border-box;
+  
+}
+
+
+#squares {
+  list-style-type: none;
+  display: flex;
+  flex-flow: row wrap;
+  width: 327px;
+  align-content: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.square {
+  border: 2px solid black;
+  width: 100px;
+  height: 100px;
+  margin: 0 5px 5px 0;
+  padding: 0;
 }
