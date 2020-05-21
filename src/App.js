@@ -14,8 +14,8 @@ export default function App() {
   return (
     <div className="App">
       <header>
-        <h1>React - Whack a Mole Game</h1>
-        <h2>Score: {score}</h2>
+        <h1>Whack-a-Mole Game</h1>
+        { score ? <h2>Score: {score}</h2> : <h2><button>Start Game</button></h2> }
       </header>
       
       <ul id="squares">
