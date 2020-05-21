@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./styles.css";
-import { buildSquares, Square } from "./components/Square";
+import { buildSquares } from "./components/Square";
 import { moveMole } from "./mole.js";
 
 export default function App() {

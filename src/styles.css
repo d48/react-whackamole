@@ -24,3 +24,8 @@
   margin: 0 5px 5px 0;
   padding: 0;
 }
+
+.mole {
+  background-image: url(https://content.screencast.com/users/Ryan.Regalado/folders/Apps/media/75501d12-cec5-4a5b-a840-13817c7271d2/IMG_0626.JPG);
+  background-size: cover;
+}
