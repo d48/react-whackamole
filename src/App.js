@@ -1,9 +1,16 @@
-import React, { useState} from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.css";
+import { buildSquares, Square } from "./components/Square";
+import { moveMole } from "./mole.js";
 
 export default function App() {
   let [score, setScore] = useState(0)
-
+  let [squares, setSquares] = useState(buildSquares(9))
+  
+  useEffect(() => {
+    moveMole();
+  });
+ 
   return (
     <div className="App">
       <header>
@@ -12,15 +19,7 @@ export default function App() {
       </header>
       
       <ul id="squares">
-        <li class="square" id="1"></li>
-        <li class="square" id="2"></li>
-        <li class="square" id="3"></li>
-        <li class="square" id="4"></li>
-        <li class="square" id="5"></li>
-        <li class="square" id="6"></li>
-        <li class="square" id="7"></li>
-        <li class="square" id="8"></li>
-        <li class="square" id="9"></li>
+        {squares}
       </ul>
     </div>
   );
