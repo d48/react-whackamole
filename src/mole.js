@@ -1,7 +1,12 @@
 
-const moveMole = () => {
-  console.log('moving mole');
-
+const moveMole = (squares) => {  
+  for (let square of squares) {
+    console.log(square)
+    removeMole(square)
+  }
+   
+  let randomNum = Math.ceil(Math.random() * 9)
+  addMole(squares[randomNum])
 };
 
 const addMole = (element) => {

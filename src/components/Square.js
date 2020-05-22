@@ -12,7 +12,7 @@ function Square(props) {
   const {num} = props;
 
   return (
-    <li className="square mole" id={num}></li>
+    <li className="square" id={num}></li>
   )
 }
 
