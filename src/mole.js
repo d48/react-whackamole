@@ -8,12 +8,12 @@ const moveMole = squares => {
 };
 
 const addMole = element => {
-  element && element.classList.add("mole");
+  element.classList.add("mole");
   return element;
 };
 
 const removeMole = element => {
-  element && element.classList.remove("mole");
+  element.classList.remove("mole");
   return element;
 };
 
