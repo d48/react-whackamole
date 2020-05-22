@@ -3,17 +3,33 @@ import "./styles.css";
 import { buildSquares } from "./components/Square";
 import { moveMole } from "./mole.js";
 
+let moleIntervalId;
 let timerId;
 let squareEls;
+let timerDuration = 10;
 
-function startGame(startHandler) {
+function startGame(startHandler, timeHandler) {
   startHandler(true);
-  timerId = setInterval(() => {
+  timeHandler(timerDuration);
+  moleIntervalId = setInterval(() => {
     moveMole(squareEls.current.children);
   }, 2500);
+
+  timerId = setInterval(() => {
+    timeHandler(time => {
+      if (time > 0) {
+        return time - 1;
+      }
+
+      if (time === 0) {
+        stopGame(startHandler);
+      }
+    });
+  }, 1000);
 }
 
 function stopGame(startHandler) {
+  clearTimeout(moleIntervalId);
   clearTimeout(timerId);
   startHandler(false);
 }
@@ -22,7 +38,7 @@ export default function App() {
   let [score, setScore] = useState(0);
   let [squares, setSquares] = useState(buildSquares(9));
   let [gameStart, setGameStart] = useState(false);
-  let [timer, setTimer] = useState(60);
+  let [timer, setTimer] = useState(timerDuration);
   squareEls = useRef();
 
   return (
@@ -38,7 +54,9 @@ export default function App() {
           </>
         ) : (
           <h2>
-            <button onClick={() => startGame(setGameStart)}>Start Game</button>
+            <button onClick={() => startGame(setGameStart, setTimer)}>
+              Start Game
+            </button>
           </h2>
         )}
       </header>
