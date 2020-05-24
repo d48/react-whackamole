@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import "./styles.css";
 import { buildSquares } from "./components/Square";
-import { moveMole } from "./mole.js";
+import { moveMole, removeMoles } from "./mole.js";
 
 let moleIntervalId;
 let timerId;
@@ -11,6 +11,8 @@ let timerDuration = 10;
 function startGame(startHandler, timeHandler) {
   startHandler(true);
   timeHandler(timerDuration);
+  
+  moveMole(squareEls.current.children);
   moleIntervalId = setInterval(() => {
     moveMole(squareEls.current.children);
   }, 2500);
@@ -32,6 +34,7 @@ function stopGame(startHandler) {
   clearTimeout(moleIntervalId);
   clearTimeout(timerId);
   startHandler(false);
+  removeMoles(squareEls.current.children)
 }
 
 export default function App() {
