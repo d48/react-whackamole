@@ -7,6 +7,8 @@ let moleIntervalId;
 let timerId;
 let squareEls;
 let timerDuration = 10;
+let moleSpeed = 500;
+
 
 function startGame(startHandler, timeHandler) {
   startHandler(true);
@@ -15,7 +17,7 @@ function startGame(startHandler, timeHandler) {
   moveMole(squareEls.current.children);
   moleIntervalId = setInterval(() => {
     moveMole(squareEls.current.children);
-  }, 2500);
+  }, moleSpeed);
 
   timerId = setInterval(() => {
     timeHandler(time => {
@@ -49,10 +51,9 @@ export default function App() {
     <div className="App">
       <header>
         <h1>Whack-a-Mole Game</h1>
-        <h2>Score: {score} </h2>
+        <h2>Score: {score} {gameStart ? ( <span>/ Timer: {timer} sec</span>) : null}</h2>
         {gameStart ? (
-          <>
-            <h2>Timer: {timer} sec</h2>
+          <>          
             <button onClick={() => stopGame(setGameStart, setTimer)}>
               Stop Game
             </button>
