@@ -5,6 +5,10 @@
   
 }
 
+.App button {
+  margin-bottom: 30px;
+}
+
 
 #squares {
   list-style-type: none;

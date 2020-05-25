@@ -24,17 +24,18 @@ function startGame(startHandler, timeHandler) {
       }
 
       if (time === 0) {
-        stopGame(startHandler);
+        stopGame(startHandler, timeHandler);
       }
     });
   }, 1000);
 }
 
-function stopGame(startHandler) {
+function stopGame(startHandler, timeHandler) {
   clearTimeout(moleIntervalId);
   clearTimeout(timerId);
   startHandler(false);
   removeMoles(squareEls.current.children)
+  timeHandler(timerDuration)
 }
 
 export default function App() {
@@ -48,19 +49,18 @@ export default function App() {
     <div className="App">
       <header>
         <h1>Whack-a-Mole Game</h1>
-        <h2>Score: {score}</h2>
-
+        <h2>Score: {score} </h2>
         {gameStart ? (
           <>
-            <h3>Timer: {timer}</h3>
-            <button onClick={() => stopGame(setGameStart)}>Stop Game</button>
+            <h2>Timer: {timer} sec</h2>
+            <button onClick={() => stopGame(setGameStart, setTimer)}>
+              Stop Game
+            </button>
           </>
-        ) : (
-          <h2>
+        ) : (      
             <button onClick={() => startGame(setGameStart, setTimer)}>
               Start Game
             </button>
-          </h2>
         )}
       </header>
 
