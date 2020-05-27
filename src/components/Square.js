@@ -8,16 +8,18 @@ const buildSquares = (num, scoreHandler) => {
   return result;
 }
 
-const clickHandler = (setScoreHandler) => {
+const clickHandler = (event, setScoreHandler) => {
   // check if a mole, increment score if so
-  setScoreHandler(prev => prev + 1)
+  if (event.target.getAttribute('data-is-mole') === 'true') {
+    setScoreHandler(prev => prev + 1)
+  }
 }
 
 const Square = (props) => {
   const {num, scoreHandler} = props;
 
   return (
-    <li className="square" id={num} onClick={()=> {clickHandler(scoreHandler)}}></li>
+    <li className="square" id={num} onClick={(event)=> {clickHandler(event, scoreHandler)}}></li>
   )
 }
 
