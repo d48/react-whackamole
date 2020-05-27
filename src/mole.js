@@ -1,5 +1,3 @@
-const activeMoleAttribute = 'data-is-mole'
-
 const moveMole = squares => {
   removeMoles(squares);
 
@@ -9,7 +7,6 @@ const moveMole = squares => {
 
 const addMole = element => {
   element.classList.add("mole");
-  element.setAttribute(activeMoleAttribute, 'true')
   return element;
 };
 
@@ -21,7 +18,6 @@ const removeMoles = squares => {
 
 const removeMole = element => {
   element.classList.remove("mole");
-  element.setAttribute(activeMoleAttribute, 'false')
   return element;
 };
 

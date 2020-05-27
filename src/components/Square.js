@@ -10,7 +10,7 @@ const buildSquares = (num, scoreHandler) => {
 
 const clickHandler = (event, setScoreHandler) => {
   // check if a mole, increment score if so
-  if (event.target.getAttribute('data-is-mole') === 'true') {
+  if (event.target.classList.contains('mole')) {
     setScoreHandler(prev => prev + 1)
   }
 }
