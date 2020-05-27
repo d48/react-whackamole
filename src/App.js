@@ -7,7 +7,7 @@ let moleIntervalId;
 let timerId;
 let squareEls;
 let timerDuration = 10;
-let moleSpeed = 500;
+let moleSpeed = 750;
 
 
 function startGame(startHandler, timeHandler) {
@@ -42,7 +42,7 @@ function stopGame(startHandler, timeHandler) {
 
 export default function App() {
   let [score, setScore] = useState(0);
-  let [squares, setSquares] = useState(buildSquares(9));
+  let [squares, setSquares] = useState(buildSquares(9, setScore));
   let [gameStart, setGameStart] = useState(false);
   let [timer, setTimer] = useState(timerDuration);
   squareEls = useRef();
