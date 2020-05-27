@@ -8,11 +8,13 @@ let timerId;
 let squareEls;
 let timerDuration = 10;
 let moleSpeed = 750;
+let setScore;
 
 
 function startGame(startHandler, timeHandler) {
   startHandler(true);
   timeHandler(timerDuration);
+  setScore(0);
   
   moveMole(squareEls.current.children);
   moleIntervalId = setInterval(() => {
@@ -41,11 +43,12 @@ function stopGame(startHandler, timeHandler) {
 }
 
 export default function App() {
-  let [score, setScore] = useState(0);
-  let [squares, setSquares] = useState(buildSquares(9, setScore));
+  let [score, setScoreState] = useState(0);
+  let [squares, setSquares] = useState(buildSquares(9, setScoreState));
   let [gameStart, setGameStart] = useState(false);
   let [timer, setTimer] = useState(timerDuration);
   squareEls = useRef();
+  setScore = setScoreState;
 
   return (
     <div className="App">
