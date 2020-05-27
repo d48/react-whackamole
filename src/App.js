@@ -44,9 +44,10 @@ function stopGame(startHandler, timeHandler) {
 
 export default function App() {
   let [score, setScoreState] = useState(0);
-  let [squares, setSquares] = useState(buildSquares(9, setScoreState));
   let [gameStart, setGameStart] = useState(false);
   let [timer, setTimer] = useState(timerDuration);
+
+  let squares = buildSquares(9, setScoreState);
   squareEls = useRef();
   setScore = setScoreState;
 
