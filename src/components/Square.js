@@ -10,8 +10,9 @@ const buildSquares = (num, scoreHandler) => {
 
 const clickHandler = (event, setScoreHandler) => {  
   // check if a mole, increment score if so and hasn't been clicked already
-  if (event.target.classList.contains('mole')) {
+  if (event.target.classList.contains('mole') && event.target.getAttribute('clicked') === 'false') {
     setScoreHandler(prev => prev + 1)
+    event.target.setAttribute('clicked', 'true')
   }
 }
 

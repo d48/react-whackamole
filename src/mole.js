@@ -18,6 +18,7 @@ const moveMole = squares => {
 
 const addMole = element => {
   element.classList.add("mole");
+  element.setAttribute('clicked', 'false')
   return element;
 };
 
