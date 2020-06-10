@@ -8,11 +8,15 @@ const buildSquares = (num, scoreHandler) => {
   return result;
 }
 
+const setClickedAttribute = (element) => {
+  element.setAttribute('clicked', 'true')
+}
+
 const clickHandler = (event, setScoreHandler) => {  
   // check if a mole, increment score if so and hasn't been clicked already
   if (event.target.classList.contains('mole') && event.target.getAttribute('clicked') === 'false') {
     setScoreHandler(prev => prev + 1)
-    event.target.setAttribute('clicked', 'true')
+    setClickedAttribute(event.target)    
   }
 }
 
@@ -24,4 +28,4 @@ const Square = (props) => {
   )
 }
 
-export { buildSquares, Square };
+export { buildSquares, setClickedAttribute, Square };
